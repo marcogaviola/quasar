@@ -16,8 +16,11 @@ export default {
   actions: {
     fetchTodos({commit}, todos) {
       const todos = localStorage.getItem('todoList')
-      if (todos)
+      if (todos){
         commit('setTodos', todos)
+      } else {
+        localStorage.setItem('todoList', '')
+      }
     },
     addTodo({commit}, todo) {
       commit('addTodo', todo)
