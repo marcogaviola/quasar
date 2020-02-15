@@ -14,6 +14,9 @@ export default {
     completedTodos: (state) => state.todoList.filter(todo => todo.completed === 1)
   },
   actions: {
+    fetchTodos({commit}, todos) {
+      commit('setTodos', todos)
+    },
     addTodo({commit}, todo) {
       commit('addTodo', todo)
     },
@@ -25,6 +28,7 @@ export default {
     }
   },
   mutations: {
+    setTodos: (state, data) => state.todoList = JSON.parse(data),
     addTodo: (state, data) => state.todoList.push(data),
     updateTodo: (state, data) => {
       state.todoList = [
