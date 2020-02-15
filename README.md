@@ -1,7 +1,7 @@
 # Quasar App (todoapp)
 
 A Quasar Framework app
-
+Netlify : (https://quasar-todo-app.netlify.com/)
 ## Install the dependencies
 ```bash
 npm install
