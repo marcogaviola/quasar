@@ -59,8 +59,7 @@ export default {
       fetchTodos: 'todo/fetchTodos'
     }),
     init() {
-      const todos = localStorage.getItem('todoList')
-      this.fetchTodos(todos)
+      this.fetchTodos()
       this.$q.notify.setDefaults({
         position: 'bottom',
         timeout: 2500,
