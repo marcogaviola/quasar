@@ -1,6 +1,3 @@
-const saveLocalStorage  = (data) => {
-  localStorage.setItem('todoList', JSON.stringify(data))
-}
 export default {
   namespaced: true,
   state: {
@@ -8,18 +5,11 @@ export default {
   },
   getters: {
     allTodos: (state) => {
-      saveLocalStorage(state.todoList)
       return state.todoList
     },
     completedTodos: (state) => state.todoList.filter(todo => todo.completed === 1)
   },
   actions: {
-    fetchTodos({commit}, todos) {
-      const stored = localStorage.getItem('todoList')
-      if (stored){
-        commit('setTodos', todos)
-      }
-    },
     addTodo({commit}, todo) {
       commit('addTodo', todo)
     },
@@ -31,7 +21,6 @@ export default {
     }
   },
   mutations: {
-    setTodos: (state, data) => state.todoList = JSON.parse(data),
     addTodo: (state, data) => state.todoList.push(data),
     updateTodo: (state, data) => {
       state.todoList = [

@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import List from 'components/TodoList/List.vue'
 import AddTodo from 'components/TodoList/AddTodo.vue'
 export default {
@@ -55,11 +55,7 @@ export default {
     })
   },
   methods: {
-    ...mapActions({
-      fetchTodos: 'todo/fetchTodos'
-    }),
     init() {
-      this.fetchTodos()
       this.$q.notify.setDefaults({
         position: 'bottom',
         timeout: 2500,
